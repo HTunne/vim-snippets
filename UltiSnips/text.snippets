@@ -1,0 +1,13 @@
+priority -50
+
+snippet pass "Generate password and password store templete" b
+`< /dev/urandom tr -dc [:graph:] | head -c 32`
+user: $1
+url: $0
+endsnippet
+
+snippet passn "Generate password and password store templete" b
+`< /dev/urandom tr -dc [:alnum:] | head -c 32`
+user: $1
+url: $0
+endsnippet
