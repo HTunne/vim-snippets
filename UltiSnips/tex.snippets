@@ -44,7 +44,7 @@ def add_row(snip):
 
 endglobal
 
-snippet "b(egin)?" "begin{} / end{}" br
+snippet "\\?b(egin)?" "begin{} / end{}" br
 \begin{${1:something}}
 	${0:${VISUAL}}
 \end{$1}
@@ -183,18 +183,15 @@ snippet subp "Subparagraph"
 $0
 endsnippet
 
-snippet ac "Acroynm normal"
-\ac{${1:acronym}}$0
+snippet ac "Acroynm normal" b
+\ac{${1:acronym}}
+$0
 endsnippet
 
-snippet acl "Acroynm expanded"
-\acl{${1:acronym}}$0
+snippet acl "Acroynm expanded" b
+\acl{${1:acronym}}
+$0
 endsnippet
-
-snippet nac "Glossary" b
-\newacronym{${1:key}}{${2:acronym}}{${3:long}}$0
-endsnippet
-
 
 snippet ni "Non-indented paragraph" b
 \noindent
@@ -221,4 +218,41 @@ ${2:${VISUAL:code}}
 
 $0
 endsnippet
+
+snippet gln "New glossary item" b
+\newglossaryentry{${1:identifier}}
+{
+  name={${2:name}},
+  first={${3:first occurrence}},
+  sort={${4:sort value}},
+  description={${0:description}},
+}
+endsnippet
+snippet glnl "New long glossary item" b
+\longnewglossaryentry{${1:identifier}}
+{
+  name={${2:name}},
+  first={${3:first occurrence}},
+  sort={${4:sort value}},
+}
+{
+  ${0:description}
+}
+endsnippet
+
+# Bold text
+snippet bf "Bold"
+\textbf{$1} $0
+endsnippet
+
+# Italic text
+snippet ita "Italics"
+\textit{$1} $0
+endsnippet
+
+# Underlined text
+snippet und "Underline"
+\underline{$1} $0
+endsnippet
+
 # vim:ft=snippets:
